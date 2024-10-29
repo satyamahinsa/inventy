@@ -12,7 +12,7 @@ class TransactionController extends Controller
     public function index()
     {
         $transactions = Transaction::with('user')->get();
-        return view('transactions.index', compact('transactions'));
+        return view('transactions.index-admin', compact('transactions'));
     }
 
     public function create()
@@ -124,6 +124,18 @@ class TransactionController extends Controller
         return view('transactions.invoice', compact('transaction'));
     }
 
-
+    public function dashboard()
+    {
+        $totalSales = Transaction::sum('total_price');
+        $totalTransactions = Transaction::count();
+        $totalCustomers = User::count();
+        $averageOrderValue = $totalTransactions > 0 ? $totalSales / $totalTransactions : 0;
+        return view('dashboard', [
+            'totalSales' => $totalSales,
+            'totalTransactions' => $totalTransactions,
+            'totalCustomers' => $totalCustomers,
+            'averageOrderValue' => $averageOrderValue,
+        ]);
+    }
 
 }
