@@ -1,0 +1,32 @@
+ /* Gaya untuk keranjang */
+ .cart {
+    position: fixed; /* Agar tetap di posisi yang sama saat scroll */
+    bottom: 20px; /* Jarak dari bawah */
+    right: 20px; /* Jarak dari kanan */
+    width: 60px; /* Lebar keranjang */
+    height: 60px; /* Tinggi keranjang */
+    background-color: #3b82f6; /* Warna biru */
+    border-radius: 50%; /* Membuat bulat */
+    display: flex; /* Menyusun konten secara flex */
+    align-items: center; /* Menyejajarkan item secara vertikal */
+    justify-content: center; /* Menyejajarkan item secara horizontal */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan */
+    color: white; /* Warna teks */
+    z-index: 1000; /* Agar muncul di atas elemen lainnya */
+}
+
+/* Gaya untuk jumlah produk */
+.cart-count {
+    position: absolute; /* Posisi absolut untuk menempatkan di sudut */
+    top: -5px; /* Jarak dari atas */
+    right: -5px; /* Jarak dari kanan */
+    background-color: red; /* Warna latar belakang merah */
+    color: white; /* Warna teks putih */
+    border-radius: 50%; /* Membuat bulat */
+    width: 20px; /* Lebar lingkaran */
+    height: 20px; /* Tinggi lingkaran */
+    display: flex; /* Menyusun konten secara flex */
+    align-items: center; /* Menyejajarkan item secara vertikal */
+    justify-content: center; /* Menyejajarkan item secara horizontal */
+    font-size: 12px; /* Ukuran font */
+}

@@ -20,7 +20,9 @@ return new class extends Migration {
             $table->decimal('total_price', 10, 2);
             $table->string('status');
             $table->timestamps();
-            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            
+            // Menambahkan foreign key
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
