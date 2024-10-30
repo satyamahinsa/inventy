@@ -8,55 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="bg-gray-100">
-    <div class="flex">
-        <!-- Sidebar -->
-        <div id="sidebar" class="w-64 bg-blue-800 fixed h-full p-6 flex flex-col justify-between transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
-            <div class="flex flex-col">
-                <div class="flex items-center justify-between mb-8">
-                    <div class="text-white font-bold text-2xl">
-                        <i class="fas fa-wave-square"></i> Dashboard
-                    </div>
-                    <button onclick="toggleSidebar()" class="text-white focus:outline-none">
-                        <i class="fas fa-arrow-left"></i>
-                    </button>
-                </div>
-                <nav class="space-y-4">
-                    <a href="#" class="flex items-center space-x-3 text-white hover:bg-blue-700 p-3 rounded">
-                        <i class="fas fa-home"></i>
-                        <span>Dashboard</span>
-                    </a>
-                    <a href="#" class="flex items-center space-x-3 text-white hover:bg-blue-700 p-3 rounded">
-                        <i class="fas fa-box"></i>
-                        <span>Produk</span>
-                    </a>
-                    <a href="#" class="flex items-center space-x-3 text-white hover:bg-blue-700 p-3 rounded">
-                        <i class="fas fa-exchange-alt"></i>
-                        <span>Transaksi</span>
-                    </a>
-                    <a href="#" class="flex items-center space-x-3 text-white hover:bg-blue-700 p-3 rounded">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Digital Report</span>
-                    </a>
-                </nav>
-            </div>
-            <div class="mt-auto">
-                <a href="#" class="flex items-center space-x-3 text-white hover:bg-blue-700 p-3 rounded">
-                    <i class="fas fa-moon"></i>
-                    <span>Dark Mode</span>
-                </a>
-                <a href="#" class="flex items-center space-x-3 text-white hover:bg-blue-700 p-3 rounded">
-                    <i class="fas fa-cog"></i>
-                    <span>Settings</span>
-                </a>
-                <a href="#" class="flex items-center space-x-3 text-white hover:bg-blue-700 p-3 rounded">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Log Out</span>
-                </a>
-            </div>
-        </div>
-
+    <div class="flex h-screen">
+        @include('layouts.sidebar')
+        
         <!-- Main Content -->
-        <div class="flex-1 p-6">
+        <div class="flex-1 p-6 pl-72 overflow-y-auto">
+            {{-- <button class="openbtn" onclick="openNav()">&#9776; Open Sidebar</button> --}}
             <div class="flex items-center justify-between mb-6">
                 <div class="flex w-1/2">
                     <h1 class="text-3xl">Dashboard</h1>
@@ -177,12 +134,14 @@
     </div>
 
     <script>
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const mainContent = document.getElementById('main-content');
-            const isHidden = sidebar.classList.contains('-translate-x-full');
-            sidebar.classList.toggle('-translate-x-full');
-            mainContent.style.marginLeft = isHidden ? '16rem' : '0';
+        function openNav() {
+            document.getElementById("sidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
         }
     </script>
 </body>
